@@ -7,6 +7,7 @@ public class DiscountCalculatorTest {
     @Test
     void partner_gets_12_percent() {
         var calc = new DiscountCalculator();
+        calc.registrarPolitica(CustomerType.PARTNER, new PartnerPolicy());
         assertEquals(88.0, calc.apply(100.0, CustomerType.PARTNER), 0.0001,
             "PARTNER deveria ter 12% de desconto");
     }

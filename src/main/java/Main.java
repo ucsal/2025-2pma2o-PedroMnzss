@@ -1,8 +1,16 @@
+import java.util.HashMap;
+import java.util.Map;
+
 import br.com.mariojp.solid.ocp.*;
 
 public class Main {
 	public static void main(String[] args) {
 		DiscountCalculator calc = new DiscountCalculator();
+
+		calc.registrarPolitica(CustomerType.REGULAR, new RegularPolicy());
+		calc.registrarPolitica(CustomerType.PREMIUM, new PremiumPolicy());
+		calc.registrarPolitica(CustomerType.PARTNER, new PartnerPolicy());
+
 		System.out.println("REGULAR 100 -> " + calc.apply(100, CustomerType.REGULAR));
 		System.out.println("PREMIUM 100 -> " + calc.apply(100, CustomerType.PREMIUM));
 		// PARTNER deveria ter 12%
